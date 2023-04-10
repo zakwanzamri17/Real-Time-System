@@ -1,0 +1,22 @@
+Serial.print("Setup and look task running on core ");
+Serial.print(xPortGetCoreID());
+Serial.print(" with priority ");
+Serial.println(uxTaskPriorityGet(NULL));
+
+xTaskCreatePinnedToCore(
+  toggleLED,
+  "Toggle LED",
+  1024,
+  NULL,
+  1,
+  &led_task,
+  app_cpu);
+
+ xTaskCreatePinnedToCore(
+  sayHelloWorld,
+  "Hello World",
+  1024,
+  NULL,
+  2,
+  NULL,
+  app_cpu);
