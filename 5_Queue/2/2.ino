@@ -19,7 +19,8 @@ void printMessages(void *parameters) {
     if (xQueueReceive(msg_queue, (void *)&item, 0) == pdTRUE) { 
       Serial.println(item);
     }
-    vTaskDelay(1000 / portTICK_PERIOD_MS);
+    Serial.println(item);
+    vTaskDelay(500 / portTICK_PERIOD_MS);
   }
 }
 
@@ -46,5 +47,5 @@ void loop() {
   }
   num++;
 
-  vTaskDelay(1000 / portTICK_PERIOD_MS);
+  vTaskDelay(500 / portTIVK_PERIOD-MS);
 }
